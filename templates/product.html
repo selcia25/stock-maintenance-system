@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <section id="product">
+        <h2>Product Details</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Opening Stock</th>
+                    <th>Prices</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.opening_stock }}</td>
+                        <td>{{ product.prices }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="{{ url_for('add_product') }}" method="post">
+            <label for="code">Product Code:</label>
+            <input type="text" id="code" name="code" required>
+            <label for="name">Product Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="opening_stock">Opening Stock:</label>
+            <input type="number" id="opening_stock" name="opening_stock" required>
+            <label for="prices">Prices:</label>
+            <input type="text" id="prices" name="prices" required>
+            <button type="submit">Add Product</button>
+        </form>
+    </section>
+{% endblock %}

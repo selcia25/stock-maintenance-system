@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Stock Maintenance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}" >Home</a>
+        <a href="{{ url_for('product') }}" >Products</a>
+        <a href="{{ url_for('purchase') }}">Purchase</a>
+        <a href="{{ url_for('sales') }}">Sales</a>
+        <a href="{{ url_for('stock') }}">Stock</a>
+    </nav>
+    <main>
+        <section id="dashboard">
+            <h2>Welcome to the Stock Maintenance System</h2>
+            <div>
+                <h3>Recent Activity</h3>
+                <ul>
+                    <li>Purchase of Product A - 50 units</li>
+                    <li>Sale of Product B - 20 units</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Statistics</h3>
+                <canvas id="statisticsChart" width="400" height="100"></canvas>
+                <p>Total Products: 100</p>
+                <p>Total Purchases: 500</p>
+                <p>Total Sales: 300</p>
+            </div>
+        </section>
+    </main>
+    <script>
+    // Chart.js initialization
+    var ctx = document.getElementById('statisticsChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Products', 'Purchases', 'Sales'],
+            datasets: [{
+                label: 'Statistics',
+                data: [100, 500, 300],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>
+
+</body>
+</html>

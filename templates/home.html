@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Stock Maintenance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}" >Home</a>
+        <a href="{{ url_for('product') }}" >Products</a>
+        <a href="{{ url_for('purchase') }}">Purchase</a>
+        <a href="{{ url_for('sales') }}">Sales</a>
+        <a href="{{ url_for('stock') }}">Stock</a>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <section id="stock">
+        <h2>Stock Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Opening Stock</th>
+                    <th>Purchase Stock</th>
+                    <th>Sales Stock</th>
+                    <th>Current Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock_detail in stock_details %}
+                    <tr>
+                        <td>{{ stock_detail.product_code }}</td>
+                        <td>{{ stock_detail.opening_stock }}</td>
+                        <td>{{ stock_detail.purchase_stock }}</td>
+                        <td>{{ stock_detail.sales_stock }}</td>
+                        <td>{{ stock_detail.current_stock }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
